@@ -1,0 +1,20 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+
+# Visual FoxPro Temporary/Indexes
+*.cdx
+*.bak
+*.DCT
+*.DCX
+*.dbc
+*.TBK
+
+# OS
+.DS_Store
+Thumbs.db
