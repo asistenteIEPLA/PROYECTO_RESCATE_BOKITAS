@@ -33,16 +33,27 @@ Para proteger la privacidad de los menores, este repositorio **no contiene datos
 2.  **Mock Data:** Utiliza los archivos en `output/raw_csv/` (versiones anonymizadas) para pruebas locales.
 3.  **Herramientas:** Los scripts de auditoría se encuentran en `scratch/`.
 
-## 🌍 Centro de Soporte Internacional y Descargas
-Los informes oficiales de cumplimiento y sostenibilidad están disponibles en varios idiomas:
+## 📊 Informes de Cumplimiento Internacional
 
-| Idioma | Reporte en Vivo (RMD) | Versión Digital (HTML) | Formato de Salida |
-| :--- | :--- | :--- | :--- |
-| 🇪🇸 **Español** | [Link](INFORME_COMPLIANCE_GRI.Rmd) | [Descargar](dist/reports/INFORME_COMPLIANCE_ES.html) | HTML/Imprimible |
-| 🇺🇸 **Inglés** | [Link](docs/international/INFORME_COMPLIANCE_EN.Rmd) | [Descargar](dist/reports/INFORME_COMPLIANCE_EN.html) | HTML/Imprimible |
-| 🇫🇷 **Francés** | [Link](docs/international/INFORME_COMPLIANCE_FR.Rmd) | [Descargar](dist/reports/INFORME_COMPLIANCE_FR.html) | HTML/Imprimible |
-| 🇸🇦 **Árabe** | [Link](docs/international/INFORME_COMPLIANCE_AR.Rmd) | [Descargar](dist/reports/INFORME_COMPLIANCE_AR.html) | Soporte RTL |
-| 🇮🇱 **Hebreo** | [Link](docs/international/INFORME_COMPLIANCE_HE.Rmd) | [Descargar](dist/reports/INFORME_COMPLIANCE_HE.html) | Soporte RTL |
+Los informes científicos de cumplimiento están disponibles en varios idiomas. Para garantizar la máxima calidad e integridad de los datos, estos informes se suministran en formato **RMarkdown (.Rmd)** para su procesamiento nativo.
+
+### 🛠️ Procesamiento en RStudio
+El usuario puede generar versiones digitales de alta calidad directamente:
+1.  Abrir [RStudio](https://rstudio.com/).
+2.  Navegar a la carpeta `docs/international/`.
+3.  Abrir el archivo `.Rmd` deseado.
+4.  Ejecutar `Knit to PDF` o `Knit to HTML` para distribución local.
+
+| Idioma | Archivo Fuente (RMD) | Estándar de Política |
+| :--- | :--- | :--- |
+| 🇪🇸 **Español** | [INFORME_COMPLIANCE_GRI.Rmd](INFORME_COMPLIANCE_GRI.Rmd) | GRI 203 / 418 |
+| 🇺🇸 **Inglés** | [INFORME_COMPLIANCE_EN.Rmd](docs/international/INFORME_COMPLIANCE_EN.Rmd) | GRI 203 / 418 |
+| 🇫🇷 **Francés** | [INFORME_COMPLIANCE_FR.Rmd](docs/international/INFORME_COMPLIANCE_FR.Rmd) | GRI 203 / 418 |
+| 🇸🇦 **Árabe** | [INFORME_COMPLIANCE_AR.Rmd](docs/international/INFORME_COMPLIANCE_AR.Rmd) | Soporte RTL |
+| 🇮🇱 **Hebreo** | [INFORME_COMPLIANCE_HE.Rmd](docs/international/INFORME_COMPLIANCE_HE.Rmd) | Soporte RTL |
+
+---
+*Mantenido por el equipo de Inteligencia de Datos - BOKITAS*
 
 ---
 *Mantenido por el equipo de Inteligencia de Datos - BOKITAS*
