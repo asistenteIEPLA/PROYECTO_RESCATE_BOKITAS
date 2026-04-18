@@ -19,6 +19,12 @@ Plataforma inteligente para la gestión, análisis y visibilidad de salud nutric
 - **Clasificación Social:** Automatización del indicador **Graffar-Méndez Castellano**.
 - **Ciberseguridad:** Cumplimiento estricto del estándar **GRI 418: Privacidad del Cliente**.
 
+## 🧪 Calidad y Validación Clínica
+Para garantizar la confianza absoluta de donantes y aliados, cada cálculo clínico es auditado automáticamente:
+- **Pruebas Clínicas:** Tests unitarios en `/tests` verifican que el motor de Z-Scores coincida con los valores de control del **Gold Standard de la OMS**.
+- **Integridad de Datos:** Chequeos rutinarios aseguran que ninguna medida viole límites biológicos (protección contra desbordamientos).
+- **Auditoría:** Ejecutar pruebas con `python tests/test_z_scores.py`.
+
 ## 📦 Stack Tecnológico
 - **Cloud Backend:** [Supabase](https://supabase.com/) (PostgreSQL + Realtime).
 - **Frontend Dashboard:** Next.js / Streamlit.

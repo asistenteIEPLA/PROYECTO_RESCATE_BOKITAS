@@ -19,6 +19,12 @@ Intelligent platform for the management, analysis, and visibility of child nutri
 - **Social Classification:** Automation of the **Graffar-Méndez Castellano** indicator.
 - **Cybersecurity:** Strict compliance with the **GRI 418: Customer Privacy** standard.
 
+## 🧪 Quality and Clinical Validation
+To ensure absolute reliability for donors and partners, each clinical calculation is automatically audited:
+- **Clinical Tests:** Unit tests located in `/tests` verify that the Z-Score engine matches the **WHO Gold Standard** control values.
+- **Data Integrity:** Routine checks ensure that no measurement violates biological limits (overflow protection).
+- **Audit:** Run tests using `python tests/test_z_scores.py`.
+
 ## 📦 Tech Stack
 - **Cloud Backend:** [Supabase](https://supabase.com/) (PostgreSQL + Realtime).
 - **Frontend Dashboard:** Next.js / Streamlit.
