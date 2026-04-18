@@ -1,4 +1,4 @@
-# Bitácora de Proyecto: Rescate e Inteligencia de Datos BOKITAS
+# Bitácora de Proyecto: Recuperación e Inteligencia de Datos BOKITAS
 
 ## Resumen Ejecutivo
 Este documento registra el proceso técnico y normativo de transformación del sistema legacy **Bokitas Ver 2.6 (FoxPro)** hacia la plataforma moderna **Bokitas Data Intelligence**.

@@ -1,4 +1,4 @@
-# 📓 Bitácora de Desarrollo: Rescate Bokitas
+# 📓 Bitácora de Desarrollo: Recuperación de Data Bokitas
 
 Esta bitácora narra el proceso de ingeniería de datos para la recuperación de la infraestructura histórica de Bokitas.
 
