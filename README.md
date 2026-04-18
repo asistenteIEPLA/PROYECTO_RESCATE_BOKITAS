@@ -1,31 +1,37 @@
-# 🦴 PROYECTO RESCATE BOKITAS
-## Sistema de Recuperación Forense y Normalización de Datos Antropométricos (1990-2026)
+# Bokitas Data Intelligence
 
-Este proyecto representa un esfuerzo técnico y humanitario para salvaguardar la memoria nutricional de cientos de niños. Ante el colapso del sistema heredado en **Visual FoxPro**, se implementó un motor de extracción binaria para rescatar y normalizar registros históricos críticos.
+[![Security: GRI 418](https://img.shields.io/badge/Security-GRI_418-blue.svg)](SECURITY.md)
+[![License: Private](https://img.shields.io/badge/License-Proprietary-red.svg)]()
 
-### 🛡️ Misión del Proyecto
-Rescatar, limpiar y consolidar datos de salud que se encontraban en archivos `.DBF` corruptos o incompletos, transformándolos en un dataset maestro listo para análisis estadístico avanzado según los estándares de la **Organización Mundial de la Salud (OMS)**.
+Plataforma inteligente para la gestión, análisis y visibilidad de salud nutricional infantil. Este proyecto representa la evolución tecnológica de un sistema legacy hacia una arquitectura moderna basada en la nube.
 
-### 🚀 Valor Humanitario
-Se han rescatado **528 mediciones históricas** de niños en condiciones vulnerables. Gracias a este proceso, estos datos ahora pueden ser utilizados para calcular Z-Scores y diseñar políticas de intervención nutricional efectivas.
+## 🚀 Misión del Proyecto
+Transformar el rescate forense de datos clínicos en inteligencia operativa, facilitando la toma de decisiones gerenciales para la reducción de la desnutrición infantil.
 
-### 🛠️ Stack Tecnológico
-- **Lenguaje:** Python 3.12
-- **Librerías Core:** 
-  - `pandas`: Procesamiento y normalización de datos.
-  - `dbfread`: Extracción de archivos binarios de FoxPro.
-- **Entorno de Ejecución:** Antigravity (Advanced Agentic Coding Environment)
+## 🛠 Metodología y Estándares de Calidad
+- **Cálculo Nutricional:** Implementación de la metodología **WHO Child Growth Standards** utilizando librerías validadas en **R (Anthro)**.
+- **Clasificación Social:** Automatización del indicador **Graffar-Méndez Castellano**.
+- **Ciberseguridad:** Cumplimiento estricto del estándar **GRI 418: Privacidad del Cliente**. El repositorio implementa blindaje de datos PII y anonimización de entornos de desarrollo.
 
-### 📈 Características Técnicas
-- **Ingeniería Forense:** Recuperación de datos incluso ante la ausencia de archivos memo (`.FPT`) o índices (`.CDX`).
-- **Normalización Multidimensional:** Resolución de problemas de codificación `CP850` para preservar la integridad de nombres y ubicaciones.
-- **Vinculación Maestra:** Algoritmo de resolución de "IDs Huérfanos" mediante la triangulación de tablas de beneficiarios, menores y mediciones.
-- **Cálculo de Precisión:** Recalculado de la edad en meses al momento del pesaje mediante lógica diferencial de fechas.
+## 📦 Stack Tecnológico
+- **Cloud Backend:** [Supabase](https://supabase.com/) (PostgreSQL + Realtime).
+- **Frontend Dashboard:** Next.js / Streamlit.
+- **Analítica:** Motor de R para Z-Scores avanzados.
+- **Contenerización:** Docker para despliegues reproducibles.
+- **Legacy Source:** Visual FoxPro 2.6 (Fase de Rescate Finalizada).
 
-### 📂 Estructura del Repositorio
-- `/src`: Scripts de ingeniería y consolidación.
-- `/output`: Dataset maestro `MASTER_DATA_ANTROPOMETRICA.csv` y archivos procesados.
-- `/docs`: Documentación técnica y bitácora de desarrollo.
+## 🔐 Guía de Inicio Seguro
+Para proteger la privacidad de los menores, este repositorio **no contiene datos reales**.
+
+1.  **Configuración de Entorno:** Copia `.env.example` a `.env` y configura tus llaves de Supabase.
+2.  **Mock Data:** Utiliza los archivos en `mock_data/` para poblar tu base de datos local o de pruebas.
+    ```bash
+    python tools/ingest_mock_data.py # Ejemplo conceptual
+    ```
+3.  **Scripts de Extracción:** Las herramientas de ingeniería inversa se encuentran en `tools/` (anteriormente `scratch/`).
+
+## 📊 Reporte de Sostenibilidad e Impacto
+Toda la gestión analítica se rige por indicadores de impacto social que pueden consultarse en la [Plantilla de Informe GRI](INFORME_GRI_BOKITAS.md).
 
 ---
-*Desarrollado con precisión técnica por Antigravity para el equipo de Bokitas.*
+*Mantenido por el equipo de Inteligencia de Datos - BOKITAS*
