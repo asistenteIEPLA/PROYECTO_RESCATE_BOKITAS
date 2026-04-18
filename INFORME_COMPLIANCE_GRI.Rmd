@@ -1,0 +1,104 @@
+---
+title: "Informe de Cumplimiento Normativo y Sostenibilidad (GRI)"
+subtitle: "Proyecto Bokitas Data Intelligence: Del Legado a la Inteligencia"
+author: "Departamento de Ciencia de Datos y Ciberseguridad"
+date: "`r Sys.Date()`"
+output:
+  html_document:
+    theme: cosmo
+    highlight: tango
+    toc: true
+    toc_float: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, eval = FALSE)
+library(tidyverse)
+```
+
+# 1. Introducción y Propósito (GRI 102)
+
+Este informe documenta la transición técnica y ética del sistema de control de salud **Bokitas Ver 2.6** hacia una arquitectura moderna de datos. El proceso se ha regido bajo el estándar **GRI 203 (Impactos Económicos Indirectos)** al fortalecer la infraestructura de salud comunitaria y el estándar **GRI 418 (Privacidad del Cliente)** al garantizar el blindaje de datos sensibles de menores.
+
+# 2. Arqueología Forense de Datos (Fase 1)
+
+Se ha realizado una ingeniería inversa sobre una base de datos legacy en Visual FoxPro, rescatando la integridad relacional de la operación histórica.
+
+### Inventario de Tablas Rescatadas
+| Módulo | Tabla Legacy | Registros | Función Crítica |
+| :--- | :--- | :--- | :--- |
+| **Nutricional** | `tb_antropometrica` | 528 | Seguimiento longitudinal de medidas |
+| **Socioeconómico** | `tb_socioeconomico` | 221 | Estratificación Graffar |
+| **Clínico** | `tb_pediatrica` | 412 | Diagnóstico y tratamiento médico |
+| **Referencia** | `tb_pesotalla...` | 1,200 | Baremos OMS (SD-3 a SD+3) |
+
+# 3. Metodología de Procesamiento Lineal (Tidyverse)
+
+La normalización de la data histórica se ha diseñado utilizando principios de programación funcional para asegurar la reproducibilidad.
+
+```{r cleaning-logic}
+# Simulación de limpieza y consolidación de Master Data
+master_data <- tb_antropometrica %>%
+  inner_join(tb_menores, by = "cedula") %>%
+  mutate(
+    fecha_cons = as.Date(fecha_ini),
+    peso_kg = as.numeric(peso),
+    talla_cm = as.numeric(talla)
+  ) %>%
+  filter(!is.na(peso_kg) & talla_cm > 0) %>%
+  select(cedula, fecha_cons, peso_kg, talla_cm, sexo, edad_meses)
+```
+
+# 4. Cálculo de Indicadores de Impacto (GRI 203)
+
+## 4.1. Análisis Antropométrico (WHO Anthro)
+Siguiendo las directrices de la **OMS (2006)**, el sistema integra el cálculo de Z-Scores para determinar la desviación estándar de la población.
+
+```{r z-score-calc}
+# Lógica de integración con el estándar OMS
+library(anthro)
+
+indices_nutri <- anthro_zscores(
+  sex = master_data$sexo,
+  age = master_data$edad_meses,
+  weight = master_data$peso_kg,
+  lenhei = master_data$talla_cm
+)
+
+# Clasificación binaria para reportes gerenciales
+master_data <- master_data %>%
+  mutate(dnt_aguda = ifelse(indices_nutri$zwei < -2, "Alerta", "Normal"))
+```
+
+## 4.2. Estratificación Socioeconómica (Graffar)
+El motor de datos aplica el método **Graffar-Méndez Castellano** para cruzar la vulnerabilidad social con el estado nutricional.
+
+```{r graffar-logic}
+# Asignación de puntajes por variables de vivienda y educación
+social_summary <- tb_socioeconomico %>%
+  group_by(estrato) %>%
+  summarise(
+    total_beneficiarios = n(),
+    tasa_riesgo = mean(puntaje > 15)
+  )
+```
+
+# 5. Blindaje de Privacidad y GRI 418
+
+En cumplimiento con el estándar **GRI 418-1**, se ha implementado un protocolo de anonimización estricto antes de cualquier sincronización con entornos cloud.
+
+### Acciones de Mitigación Realizadas
+- **Anonimización:** Sustitución de Cédulas y Nombres reales por identificadores alfanuméricos únicos (UUID).
+- **Aislamiento:** Remoción física de los archivos `.DBF` originales del repositorio trackeado por Git.
+- **Seguridad Dinámica:** Implementación de variables de entorno `.env` para credenciales de Supabase.
+
+# 6. Technical Assurance (Certificación)
+
+> #### EXENCIÓN DE RESPONSABILIDAD TÉCNICA
+> **Se certifica que el presente repositorio está libre de Información Personal Identificable (PII).** Toda la data contenida en las carpetas de desarrollo (`mock_data/`) es sintética y no corresponde a individuos reales. El historial de Git ha sido auditado para garantizar que no existan metadatos residuales de la fase de arqueología legacy.
+
+---
+
+**Firma:**  
+*Lead Data Scientist & Compliance Officer*  
+*Proyecto Bokitas Data Intelligence*
