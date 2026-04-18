@@ -33,15 +33,17 @@ Para proteger la privacidad de los menores, este repositorio **no contiene datos
 ## 📊 Reporte de Sostenibilidad e Impacto
 Toda la gestión analítica se rige por indicadores de impacto social que pueden consultarse en la [Plantilla de Informe GRI](INFORME_GRI_BOKITAS.md).
 
-## 🌍 International Support
+## 🌍 International Support & Download Center
 
-To facilitate global cooperation and fundraising, official compliance reports are available in multiple languages:
+Official compliance reports and sustainability data are available in multiple languages for global stakeholders and donors:
 
-- 🇪🇸 [Spanish (Original)](INFORME_COMPLIANCE_GRI.Rmd)
-- 🇺🇸 [English](docs/international/INFORME_COMPLIANCE_EN.Rmd)
-- 🇫🇷 [French](docs/international/INFORME_COMPLIANCE_FR.Rmd)
-- 🇸🇦 [Arabic (RTL)](docs/international/INFORME_COMPLIANCE_AR.Rmd)
-- 🇮🇱 [Hebrew (RTL)](docs/international/INFORME_COMPLIANCE_HE.Rmd)
+| Language | Live Report (RMD) | Digital Version (HTML) | Output Format |
+| :--- | :--- | :--- | :--- |
+| 🇪🇸 **Spanish** | [Link](INFORME_COMPLIANCE_GRI.Rmd) | [Download](dist/reports/INFORME_COMPLIANCE_ES.html) | HTML/Printable |
+| 🇺🇸 **English** | [Link](docs/international/INFORME_COMPLIANCE_EN.Rmd) | [Download](dist/reports/INFORME_COMPLIANCE_EN.html) | HTML/Printable |
+| 🇫🇷 **French** | [Link](docs/international/INFORME_COMPLIANCE_FR.Rmd) | [Download](dist/reports/INFORME_COMPLIANCE_FR.html) | HTML/Printable |
+| 🇸🇦 **Arabic** | [Link](docs/international/INFORME_COMPLIANCE_AR.Rmd) | [Download](dist/reports/INFORME_COMPLIANCE_AR.html) | RTL Support |
+| 🇮🇱 **Hebrew** | [Link](docs/international/INFORME_COMPLIANCE_HE.Rmd) | [Download](dist/reports/INFORME_COMPLIANCE_HE.html) | RTL Support |
 
 ---
 *Mantenido por el equipo de Inteligencia de Datos - BOKITAS*
