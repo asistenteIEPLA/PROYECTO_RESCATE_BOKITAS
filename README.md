@@ -1,4 +1,4 @@
-# Bokitas Data Intelligence
+# Bokitas Data Recovery Intelligence
 
 [Leer esto en Español](README.es.md)
 
