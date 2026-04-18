@@ -1,41 +1,40 @@
 # Bokitas Data Intelligence
 
+[Leer esto en Español](README.es.md)
+
 [![Security: GRI 418](https://img.shields.io/badge/Security-GRI_418-blue.svg)](SECURITY.md)
-[![License: Private](https://img.shields.io/badge/License-Proprietary-red.svg)]()
+[![License: Proprietary](https://img.shields.io/badge/License-Proprietary-red.svg)]()
+[![Status: Secured](https://img.shields.io/badge/Status-Secured-success.svg)]()
 
-Plataforma inteligente para la gestión, análisis y visibilidad de salud nutricional infantil. Este proyecto representa la evolución tecnológica de un sistema legacy hacia una arquitectura moderna basada en la nube.
+Intelligent platform for the management, analysis, and visibility of child nutritional health. This project represents the technological evolution of a legacy system into a modern cloud-based architecture.
 
-## 🚀 Misión del Proyecto
-Transformar el rescate forense de datos clínicos en inteligencia operativa, facilitando la toma de decisiones gerenciales para la reducción de la desnutrición infantil.
+## 🌟 Phase Summary
+1. **Phase 1: Database Archaeology:** Forensic reverse engineering of FoxPro 2.6, recovery of 25 tables, and business logic extraction.
+2. **Phase 2: Data Normalization:** Adaptation of fields to WHO (Z-Scores) and Graffar-Méndez Castellano standards.
+3. **Phase 3: Security & Anonymization:** Implementation of GRI 418 protocol, PII isolation, and Git history sanitization.
+4. **Phase 4: Architecture Design:** SQL Master schema for Supabase, Vercel, Docker, and R integration.
 
-## 🛠 Metodología y Estándares de Calidad
-- **Cálculo Nutricional:** Implementación de la metodología **WHO Child Growth Standards** utilizando librerías validadas en **R (Anthro)**.
-- **Clasificación Social:** Automatización del indicador **Graffar-Méndez Castellano**.
-- **Ciberseguridad:** Cumplimiento estricto del estándar **GRI 418: Privacidad del Cliente**. El repositorio implementa blindaje de datos PII y anonimización de entornos de desarrollo.
+## 🛠 Methodology and Quality Standards
+- **Nutritional Calculation:** Implementation of the **WHO Child Growth Standards** methodology using validated libraries in **R (Anthro)**.
+- **Social Classification:** Automation of the **Graffar-Méndez Castellano** indicator.
+- **Cybersecurity:** Strict compliance with the **GRI 418: Customer Privacy** standard.
 
-## 📦 Stack Tecnológico
+## 📦 Tech Stack
 - **Cloud Backend:** [Supabase](https://supabase.com/) (PostgreSQL + Realtime).
 - **Frontend Dashboard:** Next.js / Streamlit.
-- **Analítica:** Motor de R para Z-Scores avanzados.
-- **Contenerización:** Docker para despliegues reproducibles.
-- **Legacy Source:** Visual FoxPro 2.6 (Fase de Rescate Finalizada).
+- **Analytics:** R Engine for advanced Z-Scores.
+- **Containerization:** Docker for reproducible deployments.
+- **Legacy Source:** Visual FoxPro 2.6.
 
-## 🔐 Guía de Inicio Seguro
-Para proteger la privacidad de los menores, este repositorio **no contiene datos reales**.
+## 🔐 Secure Quick Start
+To protect the privacy of minors, this repository **does not contain real data**.
 
-1.  **Configuración de Entorno:** Copia `.env.example` a `.env` y configura tus llaves de Supabase.
-2.  **Mock Data:** Utiliza los archivos en `mock_data/` para poblar tu base de datos local o de pruebas.
-    ```bash
-    python tools/ingest_mock_data.py # Ejemplo conceptual
-    ```
-3.  **Scripts de Extracción:** Las herramientas de ingeniería inversa se encuentran en `tools/` (anteriormente `scratch/`).
-
-## 📊 Reporte de Sostenibilidad e Impacto
-Toda la gestión analítica se rige por indicadores de impacto social que pueden consultarse en la [Plantilla de Informe GRI](INFORME_GRI_BOKITAS.md).
+1.  **Environment Setup:** Copy `.env.example` to `.env` and configure your API keys.
+2.  **Mock Data:** Use the files in `output/raw_csv/` (anonymized versions) for local testing and development.
+3.  **Audit Tools:** Reverse engineering and security scripts are located in `scratch/`.
 
 ## 🌍 International Support & Download Center
-
-Official compliance reports and sustainability data are available in multiple languages for global stakeholders and donors:
+Official compliance and sustainability reports are available in multiple languages:
 
 | Language | Live Report (RMD) | Digital Version (HTML) | Output Format |
 | :--- | :--- | :--- | :--- |
@@ -46,4 +45,4 @@ Official compliance reports and sustainability data are available in multiple la
 | 🇮🇱 **Hebrew** | [Link](docs/international/INFORME_COMPLIANCE_HE.Rmd) | [Download](dist/reports/INFORME_COMPLIANCE_HE.html) | RTL Support |
 
 ---
-*Mantenido por el equipo de Inteligencia de Datos - BOKITAS*
+*Maintained by the Data Intelligence Team - BOKITAS*
