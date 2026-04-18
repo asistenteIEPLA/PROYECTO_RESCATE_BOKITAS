@@ -33,5 +33,15 @@ Para proteger la privacidad de los menores, este repositorio **no contiene datos
 ## 📊 Reporte de Sostenibilidad e Impacto
 Toda la gestión analítica se rige por indicadores de impacto social que pueden consultarse en la [Plantilla de Informe GRI](INFORME_GRI_BOKITAS.md).
 
+## 🌍 International Support
+
+To facilitate global cooperation and fundraising, official compliance reports are available in multiple languages:
+
+- 🇪🇸 [Spanish (Original)](INFORME_COMPLIANCE_GRI.Rmd)
+- 🇺🇸 [English](docs/international/INFORME_COMPLIANCE_EN.Rmd)
+- 🇫🇷 [French](docs/international/INFORME_COMPLIANCE_FR.Rmd)
+- 🇸🇦 [Arabic (RTL)](docs/international/INFORME_COMPLIANCE_AR.Rmd)
+- 🇮🇱 [Hebrew (RTL)](docs/international/INFORME_COMPLIANCE_HE.Rmd)
+
 ---
 *Mantenido por el equipo de Inteligencia de Datos - BOKITAS*

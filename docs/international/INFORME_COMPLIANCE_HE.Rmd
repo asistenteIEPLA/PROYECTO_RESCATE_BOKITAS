@@ -1,0 +1,119 @@
+---
+title: "דו"ח ציות וקיימות (GRI)"
+subtitle: "פרויקט Bokitas Data Intelligence: מlegacy לבינה"
+author: "מחלקת מדעי הנתונים ואבטחת סייבר"
+date: "`r Sys.Date()`"
+output:
+  html_document:
+    theme: cosmo
+    highlight: tango
+    toc: true
+    toc_float: true
+---
+
+```{css, echo=FALSE}
+body {
+  direction: rtl;
+  text-align: right;
+}
+.tocify {
+  text-align: right;
+  direction: ltr;
+}
+pre, code {
+  direction: ltr;
+  text-align: left;
+}
+```
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, eval = FALSE)
+library(tidyverse)
+```
+
+# 1. מבוא ומטרה (GRI 102)
+
+דו"ח זה מתעד את המעבר הטכני והאתי של מערכת הבקרה הבריאותית **Bokitas Ver 2.6** לארכיטקטורת נתונים מודרנית. התהליך מונחה על ידי תקן **GRI 203 (השפעות כלכליות עקיפות)** באמצעות חיזוק תשתית הבריאות הקהילתית ותקן **GRI 418 (פרטיות לקוחות)** על ידי הבטחת ההגנה על נתונים רגישים של המוטבים.
+
+# 2. ארכיאולוגיית נתונים פורנזית (שלב 1)
+
+הנדסה פורנזית בוצעה על מסד נתונים legacy של Visual FoxPro, תוך הצלת השלמות היחסית של הפעולות ההיסטוריות.
+
+### מלאי טבלאות שניצלו
+| פונקציה קריטית | רשומות | טבלה ישנה | מודול |
+| :--- | :--- | :--- | :--- |
+| מעקב מדידות אורך | 528 | `tb_antropometrica` | **תזונתי** |
+| סיווג גראפאר | 221 | `tb_socioeconomico` | **סוציו-אקונומי** |
+| אבחון וטיפול רפואי | 412 | `tb_pediatrica` | **קליני** |
+| תקני ארגון הבריאות העולמי (SD-3 עד SD+3) | 1,200 | `tb_pesotalla...` | **ייחוס** |
+
+# 3. מתודולוגיית עיבוד ליניארית (Tidyverse)
+
+נורמליזציה של נתונים היסטוריים תוכננה באמצעות עקרונות תכנות פונקציונליים להבטחת שחזורימיות.
+
+```{r cleaning-logic}
+# סימולציה של ניקוי ואיחוד נתוני מאסטר
+master_data <- tb_antropometrica %>%
+  inner_join(tb_menores, by = "cedula") %>%
+  mutate(
+    fecha_cons = as.Date(fecha_ini),
+    peso_kg = as.numeric(peso),
+    talla_cm = as.numeric(talla)
+  ) %>%
+  filter(!is.na(peso_kg) & talla_cm > 0) %>%
+  select(cedula, fecha_cons, peso_kg, talla_cm, sexo, edad_meses)
+```
+
+# 4. חישוב מדדי השפעה (GRI 203)
+
+## 4.1. ניתוח אנתרופומטרי (WHO Anthro)
+בהתאם להנחיות **ארגון הבריאות העולמי (2006)**, המערכת משלבת חישובי **Z-Score** לקביעת סטיית התקן של האוכלוסייה.
+
+```{r z-score-calc}
+# שילוב לוגי עם תקן ארגון הבריאות העולמי
+library(anthro)
+
+indices_nutri <- anthro_zscores(
+  sex = master_data$sexo,
+  age = master_data$edad_meses,
+  weight = master_data$peso_kg,
+  lenhei = master_data$talla_cm
+)
+
+# סיווג בינארי לדיווחים ניהוליים
+master_data <- master_data %>%
+  mutate(dnt_aguda = ifelse(indices_nutri$zwei < -2, "התראה", "נורמלי"))
+```
+
+## 4.2. ריבוד סוציו-אקונומי (Graffar)
+מנוע הנתונים מיישם את שיטת **Graffar-Méndez Castellano** להצלבת פגיעות חברתית עם מצב תזונתי.
+
+```{r graffar-logic}
+# הקצאת ציונים לפי משתני דיור וחינוך
+social_summary <- tb_socioeconomico %>%
+  group_by(estrato) %>%
+  summarise(
+    total_beneficiaries = n(),
+    risk_rate = mean(puntaje > 15)
+  )
+```
+
+# 5. הגנת פרטיות ותקן GRI 418
+
+בתאימות לתקן **GRI 418-1**, יושם פרוטוקול אנונימיזציה קשיח לפני כל סנכרון עם סביבות ענן.
+
+### פעולות מניעה שבוצעו
+- **אנונימיזציה:** החלפת מספרי זהות ושמות אמיתיים במזהים אלפא-נומריים ייחודיים (UUIDs).
+- **בידוד:** הסרה פיזית של קבצי `.DBF` מקוריים מהמאגר המנוהל ב-Git.
+- **אבטחה דינמית:** יישום משתני סביבה `.env` עבור פרטי גישה למסד הנתונים.
+
+# 6. הבטחה טכנית (הסמכה)
+
+> #### הצהרה טכנית
+> **מאושר בזאת כי מאגר זה נקי ממידע המאפשר זיהוי אישי (PII).** כל הנתונים הכלולים בתיקיות הפיתוח (`mock_data/`) הם סינתטיים ואינם תואמים לאנשים אמיתיים. היסטוריית ה-Git נבדקה כדי להבטיח שלא קיימים מטא-נתונים שיוריים משלב הארכיאולוגיה.
+
+---
+
+**חתימה:**  
+*מדען נתונים ראשי וממונה ציות*  
+*פרויקט Bokitas Data Intelligence*
