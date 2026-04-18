@@ -1,20 +1,64 @@
-# Python
-__pycache__/
-*.pyc
-*.pyo
-*.pyd
-.Python
-env/
-venv/
-
-# Visual FoxPro Temporary/Indexes
-*.cdx
-*.bak
-*.DCT
-*.DCX
+# Data & Database files
+*.dbf
+*.DBF
 *.dbc
+*.DBC
+*.dct
+*.DCT
+*.dcx
+*.DCX
+*.fpt
+*.FPT
+*.cdx
+*.CDX
+*.bak
+*.BAK
+*.tbk
 *.TBK
 
-# OS
-.DS_Store
-Thumbs.db
+# Compressed archives
+*.zip
+*.rar
+*.7z
+*.tar
+*.gz
+
+# Environment & Secrets
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Build & Dependencies
+node_modules/
+dist/
+build/
+.next/
+out/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Migration Assets (Confidential)
+MIGRACION_BOKITAS_CONSOLIDADA/
+RESCATE_BOKITAS_FINAL/
+PAQUETE_MIGRACION_BOKITAS_FINAL.zip
+
+# Python/Scripting
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+.venv/
+scratch/
+
+# Output Data (PII Risk)
+output/
+DATA_LIMPIA/
+*.csv
+*.json
+
+# Logs
+*.log
+logs/
