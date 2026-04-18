@@ -41,3 +41,7 @@ Este documento registra el proceso técnico y normativo de transformación del s
 ---
 *Fecha de Cierre de Fase: 18 de Abril de 2026*
 *Responsable: Documentación Técnica Senior & AI Coding Assistant*
+
+## Actualización por Normalización Terminológica (2026-04-18)
+- **Normalización terminológica:** Migración del concepto "Rescate" a "Recuperación" en toda la documentación técnica y eliminación de plantillas GRI redundantes.
+- **Depuración:** Eliminación definitiva de plantillas obsoletas en favor de los Informes de Cumplimiento dinámicos (RMarkdown).
